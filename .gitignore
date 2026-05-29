@@ -1,0 +1,12 @@
+/node_modules
+/.next/
+/out/
+/build
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.env*
+npm-debug.log*
+
+# Claude Code local config
+.claude/
