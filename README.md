@@ -2,6 +2,8 @@
 
 Turn any album cover into a LEGO® mosaic — with an exact parts list and a printable build guide. Everything runs in your browser; nothing is uploaded.
 
+![BRICKWAVE turning the DAMN. cover into a LEGO mosaic — 2,304 pieces, 19 colors](docs/example.png)
+
 ## What it does
 
 - **Drop a cover** (or pick a sample) and frame it with a pan/zoom cropper.
