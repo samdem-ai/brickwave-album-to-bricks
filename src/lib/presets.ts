@@ -1,5 +1,5 @@
-// Procedural "album covers" so the app demos itself without shipping
-// copyrighted art. Each is drawn on a canvas and cached as a data URL.
+// Sample "album covers" so the app demos itself. The abstract ones are drawn
+// on a canvas and cached as a data URL; real covers are served from /public.
 
 export interface Preset {
   name: string;
@@ -82,32 +82,6 @@ function neonGrid(): string {
   return c.toDataURL("image/png");
 }
 
-function prism(): string {
-  const [c, ctx] = canvas();
-  const s = c.width;
-  ctx.fillStyle = "#05131d";
-  ctx.fillRect(0, 0, s, s);
-  const bands = ["#e3000b", "#f57c00", "#ffcd00", "#00852b", "#0055bf", "#812e9e"];
-  ctx.save();
-  ctx.translate(s / 2, s / 2);
-  ctx.rotate(-Math.PI / 4);
-  const bw = (s * 1.6) / bands.length;
-  bands.forEach((col, i) => {
-    ctx.fillStyle = col;
-    ctx.fillRect(-s * 0.8 + i * bw, -s, bw + 1, s * 2);
-  });
-  ctx.restore();
-  // dark triangle "prism"
-  ctx.fillStyle = "#0b0b0b";
-  ctx.beginPath();
-  ctx.moveTo(s * 0.5, s * 0.2);
-  ctx.lineTo(s * 0.78, s * 0.7);
-  ctx.lineTo(s * 0.22, s * 0.7);
-  ctx.closePath();
-  ctx.fill();
-  return c.toDataURL("image/png");
-}
-
 function bloom(): string {
   const [c, ctx] = canvas();
   const s = c.width;
@@ -147,7 +121,7 @@ export function getPresets(): Preset[] {
   cache = [
     { name: "Solar", dataUrl: sunburst() },
     { name: "Nightdrive", dataUrl: neonGrid() },
-    { name: "Prism", dataUrl: prism() },
+    { name: "DAMN.", dataUrl: "/presets/damn.jpg" },
     { name: "Bloom", dataUrl: bloom() },
   ];
   return cache;

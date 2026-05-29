@@ -10,6 +10,7 @@ import BillOfMaterials from "@/components/BillOfMaterials";
 import StudBadge from "@/components/StudBadge";
 import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 import ShareCard from "@/components/ShareCard";
+import ExampleBuild from "@/components/ExampleBuild";
 
 import { getPalette } from "@/lib/palette";
 import { NEUTRAL_ADJUST, POP_ADJUST } from "@/lib/mosaic";
@@ -56,7 +57,7 @@ export default function Page() {
   const [phase, setPhase] = useState<Phase>("empty");
   const [playToken, setPlayToken] = useState(0);
   const [showBadge, setShowBadge] = useState(false);
-  const [soundOn, setSoundOn] = useState(false);
+  const [soundOn, setSoundOn] = useState(true);
   const [compare, setCompare] = useState(false);
   const [beforeUrl, setBeforeUrl] = useState<string | null>(null);
   const [afterUrl, setAfterUrl] = useState<string | null>(null);
@@ -295,7 +296,8 @@ export default function Page() {
       </header>
 
       {phase === "empty" ? (
-        <section className="grid items-center gap-8 lg:grid-cols-2">
+        <>
+        <section className="grid min-h-[calc(100vh-7rem)] items-center gap-8 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
             <h2 className="font-display text-5xl font-extrabold leading-[0.95] text-paper sm:text-6xl">
               Drop a cover.
@@ -314,6 +316,10 @@ export default function Page() {
             <Dropzone onImage={onImage} onSound={clickCb} />
           </div>
         </section>
+        <section className="mx-auto mt-12 max-w-2xl">
+          <ExampleBuild onTry={onImage} onSound={clickCb} />
+        </section>
+        </>
       ) : (
         <section className="grid gap-6 lg:grid-cols-[1.25fr_1fr]">
           {/* Preview column */}
