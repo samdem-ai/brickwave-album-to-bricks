@@ -297,7 +297,7 @@ export default function Page() {
 
       {phase === "empty" ? (
         <>
-        <section className="grid min-h-[calc(100vh-7rem)] items-center gap-8 lg:grid-cols-2">
+        <section className="grid min-h-[72vh] items-center gap-8 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
             <h2 className="font-display text-5xl font-extrabold leading-[0.95] text-paper sm:text-6xl">
               Drop a cover.
@@ -316,7 +316,7 @@ export default function Page() {
             <Dropzone onImage={onImage} onSound={clickCb} />
           </div>
         </section>
-        <section className="mx-auto mt-12 max-w-2xl">
+        <section className="mx-auto mt-8 max-w-2xl">
           <ExampleBuild onTry={onImage} onSound={clickCb} />
         </section>
         </>
